@@ -1,6 +1,12 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+// Load tasks from local storage on page load
+window.onload = function(){
+    loadTasks();
+}
+
+
 // Called by button
 function addTask(){
     if(inputBox.value == ''){
@@ -15,6 +21,8 @@ function addTask(){
         let span = document.createElement("span"); // create new element
         span.innerHTML = "\u00d7"; // set it's html to 'x' (unicode for the character "x")
         li.appendChild(span); // append span to the li
+
+        saveTasks(); // Save the added tasks to local storage
     }
     inputBox.value = ''; //resets the input after adding an item
 }
@@ -22,8 +30,19 @@ function addTask(){
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
+        saveTasks(); // Save checked status to local storage
     }
     else if(e.target.tagName === "SPAN"){
         e.target.parentElement.remove();
+        saveTasks(); // save checked status to local storage
     }
+    
 }, false);
+
+function saveTasks(){
+    localStorage.setItem("tasks", listContainer.innerHTML); // saves the listContainer's HTML
+}
+
+function loadTasks(){
+    listContainer.innerHTML = localStorage.getItem("tasks") || ""; // loads the saved html, or nothing
+}
