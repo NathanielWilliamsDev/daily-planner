@@ -128,3 +128,19 @@ ul li span{
 ul li span:hover{
     background: var(--accent-bg-color);
 }
+
+/* #subtaskContainer{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+} */
+
+#subtask{
+    position: relative;
+    cursor: crosshair;
+    border: none;
+    background: none;
+    color: #555;
+    margin-top: 5px;
+    margin-left: 10px;
+}
