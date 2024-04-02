@@ -1,15 +1,18 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "arial";
 }
 
 :root {
     --main-bg-color: #1b664d;
     --card-bg-color: #499f68;
     --accent-bg-color: #f7dba7;
-    --main-text-color: black;
+    --main-text-color: #0d3d2d;
     --accent-text-color: #f7dba7;
+    --main-font-family: "Edu NSW ACT Foundation";
+    --main-font-size: 22px;
+    --secondary-font-family: "Noto Sans";
+    --secondary-font-size: 17px;
     
     /* chatGPT */
     /* --main-bg-color: #1B4332;
@@ -46,12 +49,15 @@ body{
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 5px 0 20px 5px;
+    padding: 5px 0 10px 5px;
     color: var(--main-text-color);
+    font-family: var(--main-font-family), cursive;
+    font-size: var(--main-font-size);
+    font-style: normal;
 }
 
 .heading img{
-    width: 30px;
+    width: 50px;
 }
 
 .search{
@@ -79,6 +85,11 @@ body{
     font-size: 16px;
     cursor: pointer;
     border-radius: 25px;
+    transition: background-color 1s ease;
+}
+
+.search button:hover{
+    background-color: red;
 }
 
 ul li{
@@ -88,6 +99,10 @@ ul li{
     user-select: none;
     cursor: pointer;
     position: relative;
+    color: var(--main-text-color);
+    font-family: var(--secondary-font-family), sans-serif;
+    font-size: var(--secondary-font-size);
+    
 }
 
 ul li::before{
@@ -96,7 +111,7 @@ ul li::before{
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(images/customUnchecked.png);
+    background-image: url(images/uncheckedColoured.png);
     background-size: cover;
     background-position: center;
     top: 9px;
@@ -123,10 +138,12 @@ ul li span{
     line-height: 25px;
     text-align: center;
     border-radius: 50%;
+    transition: transform 0.2s ease;
 }
 
 ul li span:hover{
     background: var(--accent-bg-color);
+    transform: rotate(-90deg);
 }
 
 /* #subtaskContainer{
