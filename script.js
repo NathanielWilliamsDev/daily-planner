@@ -48,6 +48,13 @@ function addTask(){
     inputBox.value = ''; //resets the input after adding an item
 }
 
+//Event Listener for 'Enter' key when typing in the input box
+inputBox.addEventListener("keydown", (keyPressed) => {
+    if(keyPressed.key === 'Enter'){
+        addTask();
+    }
+})
+
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
